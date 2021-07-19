@@ -6,20 +6,20 @@ public class Hwno5 {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		System.out.print("ÀÌ¸§ : ");
+		System.out.print("ì´ë¦„ : ");
 		String name = input.nextLine();
 		
-		System.out.print("³ªÀÌ : ");
+		System.out.print("ë‚˜ì´ : ");
 		int age = input.nextInt();
-		String nulls = input.nextLine();
-		// enter·Îµµ °ªÀ» ³ÖÀ» ¼ö ÀÖµµ·Ï Á¤¸®ÇÔ
+		input.nextLine();
+		// enterë¡œë„ ê°’ì„ ë„£ì„ ìˆ˜ ìˆë„ë¡ ì •ë¦¬í•¨ (ê°’ì„ ë°›ì§€ ì•Šê³  ë‹¨ìˆœíˆ bufferë¥¼ ë¹„ìš´ë‹¤)
 		
-		System.out.print("ÁÖ¼Ò : ");
+		System.out.print("ì£¼ì†Œ : ");
 		String addr = input.nextLine();
 		
-		System.out.println("ÀÌ¸§ : " + name);
-		System.out.println("³ªÀÌ : " + age);
-		System.out.println("ÁÖ¼Ò : " + addr+nulls);
+		System.out.println("ì´ë¦„ : " + name);
+		System.out.println("ë‚˜ì´ : " + age);
+		System.out.println("ì£¼ì†Œ : " + addr);
 		
 		input.close();
 	}
