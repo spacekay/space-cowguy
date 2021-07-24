@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class EscapeRec {
 
 	public static void main(String[] args) {
 		int x, y, w, h;
