@@ -2,7 +2,7 @@ package primenumber;
 
 import java.util.Scanner;
 
-public class N1929 {
+public class PrimeNumberSieve {
 
 	public static void main(String[] args) {
 
