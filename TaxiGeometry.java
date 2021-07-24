@@ -2,7 +2,7 @@ package geometry;
 
 import java.util.Scanner;
 
-public class N3053 {
+public class TaxiGeometry {
 
 	public static void main(String[] args) {
 		
