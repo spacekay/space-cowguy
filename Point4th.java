@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class Point4th {
 	public static void main(String[] args) {
 		int[] a = new int[3];
 		int[] b = new int[3];
