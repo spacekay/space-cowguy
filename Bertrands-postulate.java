@@ -2,7 +2,7 @@ package primenumber;
 
 import java.util.Scanner;
 
-public class N1929 {
+public class N1929 { // 에라토스테네스의 체로 만든 알고리즘 활용
 
 	public static void main(String[] args) {
 
