@@ -24,7 +24,8 @@ def count_word(str1, str2):
     # 읽기 전용으로 다시 읽어주기 (close()로 한 번은 닫아야 다시 읽기 가능)
     # 쓰기 전용인 상태로 읽으면 한글 처리할 때 io.UnsupportedOperation: not readable 발생
     # encoding tag 없으면 UnicodeDecodeError 발생
-    text_reopen = open('for_search.txt', encoding="UTF8")
+    # 쓰기 작업이 필요하지 않다면 안전하게 읽기 전용으로 읽어주기
+    text_reopen = open('for_search.txt', 'r', encoding="UTF8")
     cnt = 0
     word_keyword = ""
 
