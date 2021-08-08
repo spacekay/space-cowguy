@@ -14,7 +14,7 @@ def guest_check(text):
     guestbook.write(text)
     guestbook.close()
 
-    guestbook_find = open('guestbook.txt', encoding="UTF8")
+    guestbook_find = open('guestbook.txt', 'r', encoding="UTF8")
 
     for line in guestbook_find:
         # 불필요한 공백으로 인한 오류는 항상 방지
