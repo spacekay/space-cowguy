@@ -4,8 +4,8 @@ public class Hwno3_3 {
 
 	public static void main(String[] args) {
 		int score = 85;
-		String result = (!(score>90)) ? "°¡" : "³ª";
-		// score>90Àº °ÅÁþ -> °ÅÁþÀÇ !´Â Âü -> °¡
+		String result = (!(score>90)) ? "ê°€" : "ë‚˜";
+		// score>90ì€ ê±°ì§“ -> ê±°ì§“ì˜ !ëŠ” ì°¸ -> ê°€
 		System.out.println(result);
 	}
 
