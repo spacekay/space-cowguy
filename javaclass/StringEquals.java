@@ -2,9 +2,9 @@ package hw;
 
 public class StringEquals {
 	public static void main(String[] args) {
-		String strVar1 = "½Å¹ÎÃ¶";
-		String strVar2 = "½Å¹ÎÃ¶";
-		String strVar3 = new String("½Å¹ÎÃ¶");
+		String strVar1 = "ì‹ ë¯¼ì² ";
+		String strVar2 = "ì‹ ë¯¼ì² ";
+		String strVar3 = new String("ì‹ ë¯¼ì² ");
 		
 		System.out.println(strVar1 == strVar2);
 		System.out.println(strVar1 == strVar3);
@@ -12,8 +12,8 @@ public class StringEquals {
 		System.out.println(strVar1.equals(strVar2));
 		System.out.println(strVar1.equals(strVar3));
 		
-		//equals »ç¿ëÇÏ´Â ¹ı È®ÀÎ.
-		//ÀÓÀÇÀÇ String ÀÌ¸§.equals(ºñ±³ÇÏ°í½ÍÀº String ÀÌ¸§)
+		//equals ì‚¬ìš©í•˜ëŠ” ë²• í™•ì¸.
+		//ì„ì˜ì˜ String ì´ë¦„.equals(ë¹„êµí•˜ê³ ì‹¶ì€ String ì´ë¦„)
 	}
 
 }
