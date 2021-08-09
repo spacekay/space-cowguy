@@ -6,13 +6,13 @@ public class Hwno7 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("ÀÚ¿¬¼ö ÇÏ³ª¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		System.out.println("ìì—°ìˆ˜ í•˜ë‚˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 		long n = sc.nextLong();
 		
 		if (n%5 == 0) {
-			System.out.println("5ÀÇ ¹è¼öÀÔ´Ï´Ù.");
+			System.out.println("5ì˜ ë°°ìˆ˜ì…ë‹ˆë‹¤.");
 		} else {
-			System.out.println("5ÀÇ ¹è¼ö°¡ ¾Æ´Õ´Ï´Ù.");
+			System.out.println("5ì˜ ë°°ìˆ˜ê°€ ì•„ë‹™ë‹ˆë‹¤.");
 		}
 		
 		sc.close();
