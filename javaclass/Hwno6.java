@@ -6,17 +6,17 @@ public class Hwno6 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("1 ÀÌ»óÀÇ Á¤¼ö¸¦ 1°³ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
+		System.out.println("1 ì´ìƒì˜ ì •ìˆ˜ë¥¼ 1ê°œ ì…ë ¥í•´ ì£¼ì„¸ìš”.");
 		int n = sc.nextInt();
 		char x;
 		
 		if (n%2 == 0) {
-			x = 'Â¦';
+			x = 'ì§';
 		} else {
-			x = 'È¦';
+			x = 'í™€';
 		}
 		
-		System.out.println(x + "¼öÀÔ´Ï´Ù.");
+		System.out.println(x + "ìˆ˜ì…ë‹ˆë‹¤.");
 		
 		sc.close();
 	}
