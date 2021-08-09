@@ -6,17 +6,17 @@ public class Hwno4 {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		System.out.println("1¿¡¼­ 30 »çÀÌÀÇ ¼ýÀÚ¸¦ ÀÔ·ÂÇÏ½Ã¿À.");
+		System.out.println("1ì—ì„œ 30 ì‚¬ì´ì˜ ìˆ«ìžë¥¼ ìž…ë ¥í•˜ì‹œì˜¤.");
 		int x = input.nextInt();
 		
 		if ( x > 0 && x <= 10) {
-			System.out.println("1 ~ 10 »çÀÌÀÇ ¼öÀÔ´Ï´Ù.");
+			System.out.println("1 ~ 10 ì‚¬ì´ì˜ ìˆ˜ìž…ë‹ˆë‹¤.");
 		} else if (0 < x && x <= 20) {
-			System.out.println("11 ~ 20 »çÀÌÀÇ ¼öÀÔ´Ï´Ù.");
+			System.out.println("11 ~ 20 ì‚¬ì´ì˜ ìˆ˜ìž…ë‹ˆë‹¤.");
 		} else if ( 0 < x && x <= 30) {
-			System.out.println("21 ~ 30 »çÀÌÀÇ ¼öÀÔ´Ï´Ù.");
+			System.out.println("21 ~ 30 ì‚¬ì´ì˜ ìˆ˜ìž…ë‹ˆë‹¤.");
 		} else {
-			System.out.println("ÀÔ·Â ¹üÀ§¸¦ ¹þ¾î³­ ¼öÀÔ´Ï´Ù.");
+			System.out.println("ìž…ë ¥ ë²”ìœ„ë¥¼ ë²—ì–´ë‚œ ìˆ˜ìž…ë‹ˆë‹¤.");
 		}
 		
 		input.close();
