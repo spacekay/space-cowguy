@@ -3,7 +3,7 @@
 
 import java.util.Scanner;
 
-public class Factorial {
+public class OnlyAnswerCurrect {
 
 	public static void main(String[] args) {
 		
