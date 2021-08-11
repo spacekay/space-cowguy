@@ -2,7 +2,7 @@ package recursive;
 
 import java.util.Scanner;
 
-public class N2447 {
+public class starRecursive {
 
 
 	int a = 0;
