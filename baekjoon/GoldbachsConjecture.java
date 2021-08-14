@@ -9,7 +9,7 @@ public class GoldbachsConjecture {
 	public static void main(String[] args) throws IOException {		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
-		// output을 자주 하는 경우 OutputStreamReader의 장점을 살리기 어려울 수 있음
+		// output을 자주 하는 경우 OutputStreamWriter의 장점을 살리기 어려울 수 있음
 		// 데이터가 많아질 때 테스트 해보면 좋을듯
 
 		int x = (int) Math.sqrt(1000000);
