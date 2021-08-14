@@ -27,7 +27,15 @@ def check_id():
         select_ox = input('2000년 이후 출생자입니까? 맞으면 o 아니면 x : ')
         if select_ox == 'o' or select_ox == 'O':
             if ssn[7] == '3' or ssn[7] == '4':
-                print_birth(ssn[0:2], ssn[2:4], ssn[7])
+                print_birth('20'+ssn[0:2], ssn[2:4], ssn[7])
+                flag = True
+            else:
+                print('잘못된 번호입니다. 올바른 번호를 입력해주세요.')
+                
+        # 1900년대 출생자와 2000년대 출생자 구분하여 표기 필요 (위쪽도 수정 완료)
+        elif select_ox == 'x' or select_ox == 'X':
+            if ssn[7] == '1' or ssn[7] == '2':
+                print_birth('19'+ssn[0:2], ssn[2:4], ssn[7])
                 flag = True
             else:
                 print('잘못된 번호입니다. 올바른 번호를 입력해주세요.')
