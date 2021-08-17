@@ -32,11 +32,11 @@ public class Student implements Comparable<Student> {
 
 	@Override
 	public String toString() {
-		return "¾ÆÀÌµğ : "+this.id+" / ÀÌ¸§ : "+this.name;
+		return "ì•„ì´ë”” : "+this.id+" / ì´ë¦„ : "+this.name;
 	}
 
 	@Override
-	public boolean equals(Object obj) { // ¾ÆÀÌµğ·Î¸¸ ±¸ºĞ
+	public boolean equals(Object obj) { // ì•„ì´ë””ë¡œë§Œ êµ¬ë¶„
 		if(obj instanceof Student) {
 			Student student = (Student) obj;
 			return (student.id.equals(this.id)) ;
@@ -51,8 +51,8 @@ public class Student implements Comparable<Student> {
 	}
 
 	@Override
-	public int compareTo(Student s) { // ¾ç¼ö À½¼ö¸¸ ±¸º°ÇÏ¸é µÊ
-		return this.id.compareTo(s.id); // ¹øÈ£·Î¸¸ Á¤·ÄÇÏ±â·Î ÇÔ
-		// ÆÄ¶ó¹ÌÅÍ °´Ã¼ÀÇ °ªÀÌ ´õ Å©¸é ¾ç¼ö : ³»¸²Â÷¼ø, ¹İ´ë : ¿À¸§Â÷¼ø
+	public int compareTo(Student s) { // ì–‘ìˆ˜ ìŒìˆ˜ë§Œ êµ¬ë³„í•˜ë©´ ë¨
+		return this.id.compareTo(s.id); // ë²ˆí˜¸ë¡œë§Œ ì •ë ¬í•˜ê¸°ë¡œ í•¨
+		// íŒŒë¼ë¯¸í„° ê°ì²´ì˜ ê°’ì´ ë” í¬ë©´ ì–‘ìˆ˜ : ë‚´ë¦¼ì°¨ìˆœ, ë°˜ëŒ€ : ì˜¤ë¦„ì°¨ìˆœ
 	}	
 }
