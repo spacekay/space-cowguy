@@ -4,12 +4,12 @@ public class Member {
 	private int no;
 	private String name;
 	
-	public Member (int n, String str) { // ±âº»»ı¼ºÀÚ¸¸ Á¸ÀçÇÑ´Ù¸é setter ÇÊ¿ä
+	public Member (int n, String str) { // ê¸°ë³¸ìƒì„±ìë§Œ ì¡´ì¬í•œë‹¤ë©´ setter í•„ìš”
 		this.name = str;
 		this.no = n;
 	}	
-	// getter¿Í setter´Â ´Ù ½áÁÖ°í ½ÃÀÛÇÏ±â (+ toString)
-	// field°ª ÆíÁı ÇÊ¿äÇÏ¸é setterµµ ÇÊ¼ö
+	// getterì™€ setterëŠ” ë‹¤ ì¨ì£¼ê³  ì‹œì‘í•˜ê¸° (+ toString)
+	// fieldê°’ í¸ì§‘ í•„ìš”í•˜ë©´ setterë„ í•„ìˆ˜
 	public int getNum() {
 		return this.no;
 	}
@@ -28,14 +28,14 @@ public class Member {
 		
 	@Override
 	public String toString() {
-		return this.no+"¹ø È¸¿ø "+this.name;
+		return this.no+"ë²ˆ íšŒì› "+this.name;
 	}
 	
 	@Override
 	public boolean equals(Object obj) {
-		// no °°À¸¸é °´Ã¼ ÀÚÃ¼µµ °°´Ù°í ÆÇÁ¤ÇØ¾ß ÇÔ
-		// ±×·¡¾ß HashSet¿¡¼­ no¸¸ °¡Áö°í ÆÇ´ÜÇÒ ¼ö ÀÖÀ½
-		// (´Ù¸¥ field°¡ Áßº¹ ÆÇÁ¤ °á°ú¿¡ °ü¿©ÇÏÁö ¾ÊÀ½)
+		// no ê°™ìœ¼ë©´ ê°ì²´ ìì²´ë„ ê°™ë‹¤ê³  íŒì •í•´ì•¼ í•¨
+		// ê·¸ë˜ì•¼ HashSetì—ì„œ noë§Œ ê°€ì§€ê³  íŒë‹¨í•  ìˆ˜ ìˆìŒ
+		// (ë‹¤ë¥¸ fieldê°€ ì¤‘ë³µ íŒì • ê²°ê³¼ì— ê´€ì—¬í•˜ì§€ ì•ŠìŒ)
 		if(obj instanceof Member) {
 			Member member = (Member) obj;
 			return (member.no == no) ;
@@ -46,8 +46,8 @@ public class Member {
 
 	@Override
 	public int hashCode() {
-		// °´Ã¼º°·Î °¡Áö°í ÀÖ´Â ¸Ş¸ğ¸® »óÀÇ ÁÖ¼Ò°ª : instance (°´Ã¼ »ı¼ºµÉ ¶§¸¶´Ù ¹Ù²ñ)
-		// no°ª °°À¸¸é ÇØ½ÃÄÚµå °°Àº °ÍÀ¸·Î °¡Á¤
+		// ê°ì²´ë³„ë¡œ ê°€ì§€ê³  ìˆëŠ” ë©”ëª¨ë¦¬ ìƒì˜ ì£¼ì†Œê°’ : instance (ê°ì²´ ìƒì„±ë  ë•Œë§ˆë‹¤ ë°”ë€œ)
+		// noê°’ ê°™ìœ¼ë©´ í•´ì‹œì½”ë“œ ê°™ì€ ê²ƒìœ¼ë¡œ ê°€ì •
 		return no;
 	}
 }
