@@ -9,35 +9,35 @@ public class StudentTreeSet {
 
 	public TreeSet<Student> getStudentTreeSet() {
 		set = new TreeSet<Student>();
-		set.add(new Student("pockyjr", "±èÁ¾Çö"));
-		set.add(new Student("nuestaron", "°û¿µ¹Î"));
-		set.add(new Student("realbaekho", "°­µ¿È£"));
-		set.add(new Student("optimushwang", "È²¹ÎÇö"));
-		set.add(new Student("glorypath","ÃÖ¹Î±â"));
+		set.add(new Student("pockyjr", "ê¹€ì¢…í˜„"));
+		set.add(new Student("nuestaron", "ê³½ì˜ë¯¼"));
+		set.add(new Student("realbaekho", "ê°•ë™í˜¸"));
+		set.add(new Student("optimushwang", "í™©ë¯¼í˜„"));
+		set.add(new Student("glorypath","ìµœë¯¼ê¸°"));
 		return set;
 	}
 
-	public void setAdd(Set<Student> set) { // ´Ù¸¥ Å¬·¡½º¿¡ ÀÖ¾îµµ publicÀÌ¸é »ç¿ë °¡´É
+	public void setAdd(Set<Student> set) { // ë‹¤ë¥¸ í´ë˜ìŠ¤ì— ìˆì–´ë„ publicì´ë©´ ì‚¬ìš© ê°€ëŠ¥
 		String id;
 		String name;
 		while(true) {
 			try {
-				System.out.print("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä. > ");
+				System.out.print("ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”. > ");
 				id = sc.next();
-				System.out.print("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä. > ");
+				System.out.print("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”. > ");
 				name = sc.next();
 			} catch (Exception e) {
 				sc.nextLine();
 				continue;
 			}		
-			boolean flag = set.add(new Student(id, name)); // °´Ã¼¸¦ Ãß°¡ÇÒ ¶§´Â °´Ã¼¸¦ »õ·Î »ı¼ºÇÏ¿© ³Ö¾îÁÜ
+			boolean flag = set.add(new Student(id, name)); // ê°ì²´ë¥¼ ì¶”ê°€í•  ë•ŒëŠ” ê°ì²´ë¥¼ ìƒˆë¡œ ìƒì„±í•˜ì—¬ ë„£ì–´ì¤Œ
 
 			if (flag) {
-				System.out.println("** "+name+"("+id+")´ÔÀ» È¸¿øÀ¸·Î µî·ÏÇÏ¿´½À´Ï´Ù.");
+				System.out.println("** "+name+"("+id+")ë‹˜ì„ íšŒì›ìœ¼ë¡œ ë“±ë¡í•˜ì˜€ìŠµë‹ˆë‹¤.");
 				System.out.println();
 				break;
 			} else { 
-				System.out.println("** ÀÔ·ÂÇÏ½Å ¾ÆÀÌµğ "+id+"´Â ÀÌ¹Ì »ç¿ë ÁßÀÔ´Ï´Ù.");
+				System.out.println("** ì…ë ¥í•˜ì‹  ì•„ì´ë”” "+id+"ëŠ” ì´ë¯¸ ì‚¬ìš© ì¤‘ì…ë‹ˆë‹¤.");
 				System.out.println();
 				continue;
 			}
@@ -46,7 +46,7 @@ public class StudentTreeSet {
 
 	public void setPrintAll(Set<Student> set) {
 		if (set.isEmpty()) {
-			System.out.println("** ÇöÀç °¡ÀÔÇÑ È¸¿øÀÌ ¾ø½À´Ï´Ù.");
+			System.out.println("** í˜„ì¬ ê°€ì…í•œ íšŒì›ì´ ì—†ìŠµë‹ˆë‹¤.");
 		} else {
 			for(Student s : set) {
 				System.out.println(s);
@@ -61,10 +61,10 @@ public class StudentTreeSet {
 		Student foundStudent;
 		int k = 0;
 		if (set.isEmpty()) {
-			System.out.println("** ÇöÀç °¡ÀÔÇÑ È¸¿øÀÌ ¾ø½À´Ï´Ù.");
+			System.out.println("** í˜„ì¬ ê°€ì…í•œ íšŒì›ì´ ì—†ìŠµë‹ˆë‹¤.");
 		} else {
 			while (k < 5) {
-				System.out.print("°Ë»öÇÒ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä. > ");
+				System.out.print("ê²€ìƒ‰í•  ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”. > ");
 				typed = sc.next();
 				k++;
 				student = new Student(typed);
@@ -72,31 +72,31 @@ public class StudentTreeSet {
 				boolean flag = student.equals(foundStudent);
 
 				if(flag) {
-					System.out.println("** °Ë»ö °á°ú");
+					System.out.println("** ê²€ìƒ‰ ê²°ê³¼");
 					System.out.println(foundStudent);
 					break;
 				} else {
-					System.out.println("** ÀÔ·ÂÇÏ½Å ¾ÆÀÌµğ¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+					System.out.println("** ì…ë ¥í•˜ì‹  ì•„ì´ë””ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 					if (k != 5)
-						System.out.print("´Ù½Ã ");
+						System.out.print("ë‹¤ì‹œ ");
 				}
 			}
 		}
 		if (k == 5)
-			System.out.println("** 5Â÷·Ê ÀÌ»ó ÀÔ·Â¿¡ ½ÇÆĞÇÑ °æ¿ì ¸ŞÀÎ ¸Ş´º·Î ÀÌµ¿ÇÕ´Ï´Ù.");
+			System.out.println("** 5ì°¨ë¡€ ì´ìƒ ì…ë ¥ì— ì‹¤íŒ¨í•œ ê²½ìš° ë©”ì¸ ë©”ë‰´ë¡œ ì´ë™í•©ë‹ˆë‹¤.");
 		System.out.println();
 	}
 
 	public void setErase(Set<Student> set) {
-		System.out.print("»èÁ¦ÇÒ È¸¿øÀÇ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä. > ");
-		boolean done = false; // flag º¯¼ö (Æ¯Á¤ ºí·Ï ÁøÀÔÇß´ÂÁö ¿©ºÎ È®ÀÎ µî)
+		System.out.print("ì‚­ì œí•  íšŒì›ì˜ ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”. > ");
+		boolean done = false; // flag ë³€ìˆ˜ (íŠ¹ì • ë¸”ë¡ ì§„ì…í–ˆëŠ”ì§€ ì—¬ë¶€ í™•ì¸ ë“±)
 		int k = 0;
 		String id;
 		Student student;
 
 		while (k < 5){
 			if (k != 0)
-				System.out.print("»èÁ¦ÇÒ È¸¿øÀÇ ¾ÆÀÌµğ¸¦ ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä. > ");
+				System.out.print("ì‚­ì œí•  íšŒì›ì˜ ì•„ì´ë””ë¥¼ ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”. > ");
 
 			k++;
 			id = sc.next();
@@ -104,17 +104,17 @@ public class StudentTreeSet {
 			sc.nextLine();
 
 			student = new Student(id);
-			// ¾îÂ÷ÇÇ ¹øÈ£·Î¸¸ SetÀº °´Ã¼¸¦ ±¸ºĞÇÏ¹Ç·Î ÀÌ¸§Àº ¾Æ¹«°Å³ª Àû¾îµµ µÊ
+			// ì–´ì°¨í”¼ ë²ˆí˜¸ë¡œë§Œ Setì€ ê°ì²´ë¥¼ êµ¬ë¶„í•˜ë¯€ë¡œ ì´ë¦„ì€ ì•„ë¬´ê±°ë‚˜ ì ì–´ë„ ë¨
 			done = set.remove(student);
 			if (done) {
-				System.out.println("** "+id+"´ÔÀÇ Å»Åğ°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+				System.out.println("** "+id+"ë‹˜ì˜ íƒˆí‡´ê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 				break;
 			} else {
 				continue;
 			}
 		}
 		if (k == 5)
-			System.out.println("** 5Â÷·Ê ÀÌ»ó ÀÔ·Â¿¡ ½ÇÆĞÇÑ °æ¿ì ¸ŞÀÎ ¸Ş´º·Î ÀÌµ¿ÇÕ´Ï´Ù.");
+			System.out.println("** 5ì°¨ë¡€ ì´ìƒ ì…ë ¥ì— ì‹¤íŒ¨í•œ ê²½ìš° ë©”ì¸ ë©”ë‰´ë¡œ ì´ë™í•©ë‹ˆë‹¤.");
 		System.out.println();
 	}
 
@@ -122,10 +122,10 @@ public class StudentTreeSet {
 		TreeSet<Student> set = getStudentTreeSet();
 
 		while (run) {
-			System.out.println("¸Ş´º¸¦ ¼±ÅÃÇÏ¼¼¿ä.");
+			System.out.println("ë©”ë‰´ë¥¼ ì„ íƒí•˜ì„¸ìš”.");
 			System.out.println("____________________________________________________________");
 			System.out.println();
-			System.out.println("1. È¸¿ø °¡ÀÔ | 2. È¸¿ø »èÁ¦ | 3. È¸¿ø °Ë»ö | 4. ÀüÃ¼ È¸¿ø Ãâ·Â | 5. Á¾·á");
+			System.out.println("1. íšŒì› ê°€ì… | 2. íšŒì› ì‚­ì œ | 3. íšŒì› ê²€ìƒ‰ | 4. ì „ì²´ íšŒì› ì¶œë ¥ | 5. ì¢…ë£Œ");
 			System.out.println("____________________________________________________________");
 			System.out.print("> ");
 			try {
@@ -137,7 +137,7 @@ public class StudentTreeSet {
 			} 
 			switch (x) {
 			case 1: 
-				setAdd(set); // ±â´É¿¡ ¸Â´Â ÀÌ¸§ Áş±â
+				setAdd(set); // ê¸°ëŠ¥ì— ë§ëŠ” ì´ë¦„ ì§“ê¸°
 				break;
 			case 2:
 				setErase(set);
@@ -150,7 +150,7 @@ public class StudentTreeSet {
 				break;
 			case 5:
 				run = false;
-				System.out.println("** ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.");
+				System.out.println("** í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
 				break;
 			}
 		}
