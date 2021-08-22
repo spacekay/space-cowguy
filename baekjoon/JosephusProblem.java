@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class JosephusProblem {
+public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
 		StringBuilder sb = new StringBuilder();
@@ -22,14 +22,7 @@ public class JosephusProblem {
 		while (!list.isEmpty()) {
 			String In = list.remove(t);
 			sb.append(In);
-			t += k-1;
-			if (t >= list.size()) {
-				t -= list.size();
-				if (t >= list.size()) {
-					t -= list.size();
-				}
-				
-			}		
+			t += k-1;	
 			while (list.size() > 0) {
 				if (t >= list.size())
 					t -= list.size();				
