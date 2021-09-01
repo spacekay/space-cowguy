@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON</title>
+</head>
+<body id="parent">
+	<h3>JSON 예제</h3>
+	<hr>
+	<p id="demo1">none</p>
+	<p id="demo2">none</p>
+	<p id="demo3">none</p>
+	<script>
+		let text = '{ "employees" : ['
+				+ '{ "firstName":"John" , "lastName":"Doe" },'
+				+ '{ "firstName":"Anna" , "lastName":"Smith" },'
+				+ '{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+
+		const obj = JSON.parse(text);
+    // 저장된 모든 record를 
+		var pArray = document.getElementsByTagName("p");
+		for (i = 0; i < pArray.length; i++) {
+			var id = pArray[i].id;
+			document.getElementById(id).innerHTML = obj.employees[i].firstName + ' '
+					+ obj.employees[i].lastName;
+		}
+	</script>
+</body>
+</html>
