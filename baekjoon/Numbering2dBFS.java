@@ -8,7 +8,8 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Numbering2dBFS {
+
+public class Main {
 	static int cnt=0;
 	static ArrayList<Integer> list=new ArrayList<>();
 	public static void main(String[] args) throws IOException {
@@ -28,16 +29,15 @@ public class Numbering2dBFS {
 			}
 		}
 		br.close();
-		int t=1;
 		for (int i = 0 ; i < n ; i++) {
 			for(int j=0; j<n;j++) {
 				if(!conn[i][j].isFlag() && conn[i][j].getT()!=0) {
-					conn=BFS(conn,j,i,t);
+					conn=BFS(conn,j,i);
 				}
 			}
 		}
 		bw.write(cnt+"\n");
-    // 문제 출력 조건이 오름차순이었음. 이걸 확인했어야 함
+		// 문제의 조건을 잘 살펴야 함!
 		Collections.sort(list);
 		for(Integer one : list) {
 			bw.write(one+"\n");
@@ -46,9 +46,8 @@ public class Numbering2dBFS {
 		bw.close();
 	}
 
-  // 아래 코드는 주변 포인트들과의 결과 확인 후 set 함수 구동하는 부분을 함수로 만들어주면 텍스트량이 확 줄어들 것
-  // t 같은 경우에도 생략하고 1로 처리해도 될듯
-	private static Point[][] BFS(Point[][] conn, int x, int y, int t) {
+	private static Point[][] BFS(Point[][] conn, int x, int y) {
+		int t=1;
 		cnt++;
 		int localCnt=0;
 		Queue<Point> bfs = new LinkedList<>();
@@ -60,32 +59,29 @@ public class Numbering2dBFS {
 			localCnt++;
 			int pointX=v.getX();
 			int pointY=v.getY();
-			int pointT=v.getT();
+			//conn array의 원본의 Point 객체가 직접 수정되어야 하므로 코드를 간략하게 만드는 데에 내 현재 역량으로는 한계가 있음
+			//그래도 알고리즘 자체는 이해하는 데에 큰 도움이 되었음
 			if (pointX<conn.length-1) {
 				if (v.checkConnect(conn[pointY][pointX+1])&&!conn[pointY][pointX+1].isFlag()) {
-					conn[pointY][pointX+1].setT(pointT);
-					conn[pointY][pointX+1].setFlag(true);
+					conn=v.setPoints(conn, pointX+1, pointY);
 					bfs.offer(conn[pointY][pointX+1]);
 				}
 			}
 			if (pointX>0) {
 				if (v.checkConnect(conn[pointY][pointX-1])&&!conn[pointY][pointX-1].isFlag()) {
-					conn[pointY][pointX-1].setT(pointT);
-					conn[pointY][pointX-1].setFlag(true);
+					conn=v.setPoints(conn, pointX-1, pointY);
 					bfs.offer(conn[pointY][pointX-1]);
 				}
 			}
 			if (pointY<conn.length-1) {
 				if (v.checkConnect(conn[pointY+1][pointX])&&!conn[pointY+1][pointX].isFlag()) {
-					conn[pointY+1][pointX].setT(pointT);
-					conn[pointY+1][pointX].setFlag(true);
+					conn=v.setPoints(conn, pointX, pointY+1);
 					bfs.offer(conn[pointY+1][pointX]);
 				}
 			}
 			if (pointY>0) {
 				if (v.checkConnect(conn[pointY-1][pointX])&&!conn[pointY-1][pointX].isFlag()) {
-					conn[pointY-1][pointX].setT(pointT);
-					conn[pointY-1][pointX].setFlag(true);
+					conn=v.setPoints(conn, pointX, pointY-1);
 					bfs.offer(conn[pointY-1][pointX]);
 				}
 			}
@@ -112,6 +108,12 @@ class Point {
 			return true;
 		}
 	}
+	public Point[][] setPoints(Point[][] conn, int x, int y) {
+			conn[y][x].setT(this.t);
+			conn[y][x].setFlag(true);
+		return conn;
+	}
+
 	public int getX() {
 		return x;
 	}
