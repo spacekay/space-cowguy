@@ -8,7 +8,7 @@ public class Member {
 	protected boolean presence;
 
 	public Member(String g) {
-		this("¹ÌÀÔ·Â","¹ÌÀÔ·Â",0, g);		
+		this("ë¯¸ì…ë ¥","ë¯¸ì…ë ¥",0, g);		
 	}
 
 	public Member(String n, String p, int a, String g) {
@@ -20,10 +20,10 @@ public class Member {
 
 	public void greet() {
 		if (this.presence) {
-			System.out.println("¾È³çÇÏ¼¼¿ä, Àú´Â "+this.group+"ÀÇ "+this.position+" "+this.name+"ÀÔ´Ï´Ù.");
-			System.out.println("¿ÃÇØ ³ªÀÌ´Â "+age+"ÀÔ´Ï´Ù.");
+			System.out.println("ì•ˆë…•í•˜ì„¸ìš”, ì €ëŠ” "+this.group+"ì˜ "+this.position+" "+this.name+"ì…ë‹ˆë‹¤.");
+			System.out.println("ì˜¬í•´ ë‚˜ì´ëŠ” "+age+"ì…ë‹ˆë‹¤.");
 		} else {
-			System.out.println("¿À´Ã "+this.name+" ±ºÀº ÀÚ¸®¸¦ ºñ¿ó´Ï´Ù.");
+			System.out.println("ì˜¤ëŠ˜ "+this.name+" êµ°ì€ ìë¦¬ë¥¼ ë¹„ì›ë‹ˆë‹¤.");
 		}
 		System.out.println();
 
