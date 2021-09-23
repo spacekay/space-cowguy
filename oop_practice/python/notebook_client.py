@@ -32,3 +32,4 @@ for i in range(5):
 print("** 페이지수 :", song_notebook.get_number_of_all_pages())
 print("** 라인수 :", song_notebook.get_number_of_all_lines())
 print("** 글자수 :", song_notebook.get_number_of_all_characters())
+print("** 노트 이름 :", song_notebook)
