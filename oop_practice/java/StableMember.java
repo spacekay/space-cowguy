@@ -3,7 +3,7 @@ package oop_practice;
 public class StableMember extends Member {
 
 	public StableMember(String g) {
-		this("¹ÌÀÔ·Â","¹ÌÀÔ·Â",0, g);		
+		this("ë¯¸ì…ë ¥","ë¯¸ì…ë ¥",0, g);		
 	}
 
 	public StableMember(String n, String p, int a, String g) {
@@ -13,11 +13,11 @@ public class StableMember extends Member {
 	@Override
 	public void greet() {
 		if (this.presence) {
-			System.out.println("¾È³çÇÏ¼¼¿ä, Àú´Â "+this.group+"ÀÇ ¾ğÁ¦³ª ½ºÄÉÁÙ¿¡ Âü¼®ÇÏ´Â "+this.position+" "+this.name+"ÀÔ´Ï´Ù.");
-			System.out.println("¿ÃÇØ ³ªÀÌ´Â "+age+"ÀÔ´Ï´Ù.");
+			System.out.println("ì•ˆë…•í•˜ì„¸ìš”, ì €ëŠ” "+this.group+"ì˜ ì–¸ì œë‚˜ ìŠ¤ì¼€ì¤„ì— ì°¸ì„í•˜ëŠ” "+this.position+" "+this.name+"ì…ë‹ˆë‹¤.");
+			System.out.println("ì˜¬í•´ ë‚˜ì´ëŠ” "+age+"ì…ë‹ˆë‹¤.");
 		} else {
-			System.out.println("¿À´Ã "+this.name+" ±ºÀº ÀÚ¸®¸¦ ºñ¿ó´Ï´Ù.");
-			// ½ÇÇàµÉ °¡´É¼ºÀÌ ¾øÀ½
+			System.out.println("ì˜¤ëŠ˜ "+this.name+" êµ°ì€ ìë¦¬ë¥¼ ë¹„ì›ë‹ˆë‹¤.");
+			// ì‹¤í–‰ë  ê°€ëŠ¥ì„±ì´ ì—†ìŒ
 		}
 		System.out.println();
 	}
