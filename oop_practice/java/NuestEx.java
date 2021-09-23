@@ -6,12 +6,12 @@ public class NuestEx {
 
 		Nuest nuest = new Nuest();
 		
-		System.out.println("<ÀüÃ¼ÀÎ»ç>");
+		System.out.println("<ì „ì²´ì¸ì‚¬>");
 		nuest.allGreet();
 		
-		nuest.cmg = new StableMember("·»", "¸·³»", 27, "´ºÀÌ½ºÆ®");
+		nuest.cmg = new StableMember("ë Œ", "ë§‰ë‚´", 27, "ë‰´ì´ìŠ¤íŠ¸");
 		
-		System.out.println("<º°µµÀÎ»ç>");
+		System.out.println("<ë³„ë„ì¸ì‚¬>");
 		nuest.allGreet();
 
 	}
