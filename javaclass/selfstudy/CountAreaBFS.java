@@ -4,7 +4,7 @@ class CountAreaBFS {
 	static Queue<Point> q=new LinkedList<>();
 	static int[] dx = {-1, 1, 0, 0};
 	static int[] dy = {0, 0, -1, 1};
-	static int cnt;
+	static int cnt=0;
 	static int n;
 	static boolean[][] conn;
 	static boolean[][] checked;
