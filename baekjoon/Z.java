@@ -46,19 +46,20 @@ public class Z {
 		} else {
 			int m=(int) Math.pow(2, n-1);
       // 범위 조건 설정하는 부분 복습하기
-			if(Math.abs(c-x)>=m && Math.abs(r-y)>=m)
+			// x와 y 둘 중 하나라도 범위를 벗어난다면 사용 가능
+			if(Math.abs(c-x)>=m || Math.abs(r-y)>=m)
 				cnt+=m*m;
 			else
 				drawZ(n-1,x,y);
-			if(Math.abs(c-x-m)>=m && Math.abs(r-y)>=m)
+			if(Math.abs(c-x-m)>=m || Math.abs(r-y)>=m)
 				cnt+=m*m;
 			else
 				drawZ(n-1,x+m,y);
-			if(Math.abs(c-x)>=m && Math.abs(r-y-m)>=m)
+			if(Math.abs(c-x)>=m || Math.abs(r-y-m)>=m)
 				cnt+=m*m;
 			else
 				drawZ(n-1,x,y+m);
-			if(Math.abs(c-x-m)>=m && Math.abs(r-y-m)>=m)
+			if(Math.abs(c-x-m)>=m || Math.abs(r-y-m)>=m)
 				cnt+=m*m;
 			else
 				drawZ(n-1,x+m,y+m);
