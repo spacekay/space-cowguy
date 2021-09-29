@@ -5,25 +5,24 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Comparator;
 import java.util.PriorityQueue;
+import java.util.TreeMap;
 
-// 미완성
 public class DualPriorityQueue {
 	static PriorityQueue<Integer> minQ;
 	static PriorityQueue<Integer> maxQ;
-	static PriorityQueue<Integer> tempMinQ;
-	static PriorityQueue<Integer> tempMaxQ;
-	static int size=0;
+	static TreeMap<Integer,Integer> map;
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int T = Integer.parseInt(br.readLine());
-		minQ = new PriorityQueue<>();
-		maxQ = new PriorityQueue<>(Comparator.reverseOrder());
-		tempMinQ = new PriorityQueue<>();
-		tempMaxQ = new PriorityQueue<>(Comparator.reverseOrder());
 		String[] save;
+		// 자바는 뭘 해도 느리다고 생각하자. 가장 간단하게 할 수 있는 방법을 이 느린 언어로 잘 찾아보자.
+		// Map을 활용하여 일반적인 풀이를 하였다.
+		// 다른 사람 답들을 보니 별도 Class를 만들어서 푼 경우도 많다. 연구하여 추가 업데이트 예정이다.
 		for(int i=0;i<T;i++) {
-			size=0;
+			minQ = new PriorityQueue<>();
+			maxQ = new PriorityQueue<>(Comparator.reverseOrder());
+			map = new TreeMap<>();
 			int k=Integer.parseInt(br.readLine()); 
 			for(int j=0;j<k;j++) {
 				save=br.readLine().split(" ");
@@ -33,81 +32,52 @@ public class DualPriorityQueue {
 					offerQ(n);
 					break;
 				case 'D':
-					if(n==1) {
+					if(map.isEmpty()) {
+						continue;
+					} else if(n==1) {
 						pollMax();
 					} else if (n==-1) {
 						pollMin();
 					}
 					break;
-				}						
+				}
 			}
-			if(size==0) {
+			if(map.size()==0) {
 				bw.write("EMPTY\n");
 			} else {
-				bw.write(maxQ.peek()+" "+minQ.peek()+"\n");
+				bw.write(map.lastKey()+" "+map.firstKey()+"\n");
 			}
-			minQ.clear();
-			maxQ.clear();
-			tempMinQ.clear();
-			tempMaxQ.clear();
 		}
 		br.close();	
 		bw.flush();
 		bw.close();
 	}
-	
+
 	public static void offerQ(int save) {
-		if (maxQ.isEmpty()) {
-			maxQ.offer(save);
-		} else if (maxQ.size()==minQ.size()) {
-			if(save>minQ.peek()) {
-				maxQ.offer(minQ.poll());
-				minQ.offer(save);
-			} else {
-				maxQ.offer(save);
-			}
-		} else {
-			if (maxQ.peek()>save) {
-				minQ.offer(maxQ.poll());
-				maxQ.offer(save);	
-			} else {
-				minQ.offer(save);
-			}	
-		}
-		size++;
+		maxQ.offer(save);
+		minQ.offer(save);
+		map.put(save, map.getOrDefault(save, 0)+1);
 	}
-	
+
 	public static int pollMin() {
-		int result=0;
-		while(!tempMinQ.isEmpty()&&tempMinQ.peek()==minQ.peek()) {
-			tempMinQ.poll();
-			minQ.poll();
+		int result=map.firstKey();
+		int save=map.get(result);
+		if(save>1) {
+			map.put(result, save-1);
+		} else {
+			map.pollFirstEntry();
 		}
-		if(!minQ.isEmpty()) {
-			tempMinQ.offer(minQ.peek());
-			result=minQ.poll();
-			size--;
-		} else if (!maxQ.isEmpty()) {
-			result=maxQ.poll();
-			size--;
-		}
-		System.out.println("**"+tempMinQ.peek());
-	return result;	
+		return result;	
 	}
-	
-	public static int pollMax() {
-		int result=0;
-		while(!tempMaxQ.isEmpty()&&tempMaxQ.peek()==maxQ.peek()) {
-			tempMaxQ.poll();
-			maxQ.poll();
+
+	public static int pollMax(){
+		int result=map.lastKey();
+		int save=map.get(result);
+		if(save>1) {
+			map.put(result, save-1);
+		} else {
+			map.pollLastEntry();
 		}
-		if (!maxQ.isEmpty()) {
-			tempMaxQ.offer(maxQ.peek());
-			result=maxQ.poll();
-			size--;
-		}
-		System.out.println("**"+tempMaxQ.peek());
-	return result;	
+		return result;	
 	}
 }
-
