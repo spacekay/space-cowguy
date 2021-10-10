@@ -120,6 +120,7 @@ public class RGColorWeakness {
 			}
 		}
 	}
+	// 파란색도 카운트해야 함을 잊지 말자! (BFSR, BFSG 함수랑 합쳐서 구현하는 방법도 있음. Parameter를 하나만 더 받으면 되므로)
 	public static void BFSB(int a, int b) {
 		cnt++;
 		cntNon++;
