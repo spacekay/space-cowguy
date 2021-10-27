@@ -3,86 +3,84 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-// 초고 
-public class N1753 {
-	static int[][] bus;
-	static int n;
-	static int m;
-	static boolean[] visited;
-	static long[] cost;
-	static int inf = 1000000000;
+// 출력값 관련 뻘짓을 너무 오래하는 과정에서 다익스트라 코드 구조를 거의 외운 것 같다.
+// 그래도 내가 뭘 잘못했지..ㅠ 하는 과정이 매우 슬펐다... 조금이라도 일찍 찾아서 다행 ㅠㅠ
+public class ShortestRoute {
+	private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	private static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	private static final int INF = 100_000_000;
+	static int n,m,k;
+	static List<Node>[] arrs;
+	static int[] cost;
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		n=Integer.parseInt(br.readLine());
-		m=Integer.parseInt(br.readLine());
-		bus = new int[n+1][n+1];
-		for(int i=1;i<=n;i++) {
-			Arrays.fill(bus[i], inf);
-		}
-		StringTokenizer st;
-		for(int i=0;i<m;i++) {
-			st = new StringTokenizer(br.readLine()," ");
-			int a = Integer.parseInt(st.nextToken());
-			int b = Integer.parseInt(st.nextToken());
-			int cost = Integer.parseInt(st.nextToken());
-			if(bus[a][b]==inf) {
-				// 이 문제는 양방향 아님에 주의. 출발점과 도착점이 정해져 있음
-				bus[a][b]=cost;
-			} else if(cost<bus[a][b]) {
-				bus[a][b]=cost;
-			}				
-		}
-		st = new StringTokenizer(br.readLine()," ");
-		int a = Integer.parseInt(st.nextToken());
-		int b = Integer.parseInt(st.nextToken());
-		br.close();
-		minCost(a,b);
-		bw.write(cost[b]+"\n");
-		bw.flush();
-		bw.close();
+		 StringTokenizer st = new StringTokenizer(br.readLine());
+			n=Integer.parseInt(st.nextToken());
+			m=Integer.parseInt(st.nextToken());
+			k=Integer.parseInt(br.readLine());
+			cost = new int[n+1];
+			Arrays.fill(cost, INF);
+			arrs = new ArrayList[n+1];
+			for(int i=1;i<=n;i++) {
+				arrs[i]=new ArrayList<>();
+			}
+	        // 리스트에 그래프 정보를 초기화
+			for(int i=0;i<m;i++) {
+				st = new StringTokenizer(br.readLine()," ");
+				int a = Integer.parseInt(st.nextToken());
+				int b = Integer.parseInt(st.nextToken());
+				int c = Integer.parseInt(st.nextToken());
+				arrs[a].add(new Node(b,c));
+			}
+	        // 다익스트라 알고리즘
+	        dijkstra(k);
+	        // 출력 부분
+	        // 문자 출력은 대소문자 진짜 조심하자... 나 눈물난다 ㅠㅠ
+	        for(int i=1;i<=n;i++) {
+				if(cost[i]==INF)
+					bw.write("INF\n");
+				else
+					bw.write(cost[i]+"\n");
+			}
+	        bw.close();
+	        br.close();
 	}
-	public static void minCost(int a, int b) {		
-		visited = new boolean[n+1];
-		cost = new long[n+1];
-		for(int i=1;i<=n;i++) {
-			cost[i]=bus[a][i];
-		}
-		visited[a]=true;
-		for(int i=0;i<b-2;i++) {
-			int now = minIndex();
-			visited[now]=true;
-			for(int j=1;j<=n;j++) {
-				if(!visited[j]) { // 최소값으로 갱신해주기
-					if(cost[now]+bus[now][j]<cost[j]) {
-						cost[j]=cost[now]+bus[now][j];
-					}
+	private static void dijkstra(int start){
+		PriorityQueue<Node> q = new PriorityQueue<>();
+		q.offer(new Node(start,0));
+		boolean[] visited = new boolean[n+1];
+		cost[start]=0;
+
+		while(!q.isEmpty()){
+			Node curNode = q.poll();
+			int cur = curNode.arrive;
+
+			if(visited[cur] == true) continue;
+			visited[cur] = true;
+
+			for(Node node : arrs[cur]){
+				if(cost[node.arrive] > cost[cur] + node.cost){
+					cost[node.arrive] = cost[cur] + node.cost;
+					q.add(new Node(node.arrive, cost[node.arrive]));
 				}
 			}
 		}
 	}
-	public static int minIndex() {
-		int index=0;
-		long min= inf;
-		for(int i=1;i<=n;i++) {
-			if(cost[i]<min && !visited[i]) {
-				min = cost[i];
-				index = i;
-			}
-		}		
-		return index;
-	}
-	static class Edge{
-		int start;
+	static class Node implements Comparable<Node> {
 		int arrive;
 		int cost;
-		public Edge(int a, int b, int c) {
-			start = a;
-			arrive = b;
-			cost = c;
+		Node(int arrive, int cost) {
+			this.arrive = arrive;
+			this.cost = cost;
+		}
+		@Override
+		public int compareTo(Node o) {
+			return this.cost - o.cost;
 		}
 	}
 }
