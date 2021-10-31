@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class OperatorAdding {
+public class AddingOperator {
 	static int n;
 	static int[] arr;
 	// 초기값 범위 & 자료형 주의
