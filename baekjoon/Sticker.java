@@ -13,7 +13,7 @@ public class Sticker {
 		for(int k=0;k<K;k++) {
 			int n = Integer.parseInt(br.readLine());
 			int[][] arr = new int[2][n];
-      // 
+      			// DP
 			int[][] max = new int[3][n];
 			StringTokenizer st;
 			for(int i=0;i<2;i++) {
