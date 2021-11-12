@@ -1,97 +1,93 @@
-package graph0;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
-// 미완성
 public class TreeCircuit {
 	static int n;
 	static Node[] arr;
-	static StringBuilder sb = new StringBuilder(); 
+	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		n=Integer.parseInt(br.readLine());
 		boolean[] check = new boolean[n];
 		arr = new Node[n];
 		StringTokenizer st;
 		for(int i=0;i<n;i++) {
 			st = new StringTokenizer(br.readLine()," ");
-			String a = st.nextToken();
-			String b = st.nextToken();
-			String c = st.nextToken();
-			arr[a.charAt(0)-'A'] = new Node(a,b,c);
+			int a = st.nextToken().charAt(0)-'A';
+			char b = st.nextToken().charAt(0);
+			char c = st.nextToken().charAt(0);
+			arr[a] = new Node();
+			if(b!='.') {
+				arr[a].left=b-'A';
+			}
+			if(c!='.') {
+				arr[a].right=c-'A';
+			}
 		}
-		check[0]=true;
-		Front("A", check);
-		sb.append("\n");
-		System.out.println(sb.toString());
-		sb = new StringBuilder();
-		Rear("A", check);
-		System.out.println(sb.toString());
+		Front(0, check);
+		bw.write("\n");
+		Arrays.fill(check, false);
+		Mid(0, check);
+		bw.write("\n");
+		Arrays.fill(check, false);
+		Rear(0, check);
+		bw.write("\n");
 		bw.flush();
 		bw.close();
 	}
-	public static void Front(String s, boolean[] check) {
-		sb.append(s);
-		System.out.println(s);
-		int k = s.charAt(0)-'A';
-		Node node = arr[k];
-		if(!node.left.equals(".")) {
-			int i=node.left.charAt(0)-'A';
-			if(!check[i]) {
-				check[i]=true;
-				System.out.println("l");
-				Front(node.left, check);		
-			}	
+	public static void Front(int n, boolean[] check) throws IOException {
+		if(check[n])
+			return;
+		check[n]=true;
+		// 먼저 가는 쪽부터 루트부터 바로 씀
+		char c = (char) (n+'A');
+		bw.write(c);
+		if(arr[n].left!=-1) {
+			Front(arr[n].left, check);
 		}
-		if(!node.right.equals(".")) {
-			int i=node.right.charAt(0)-'A';
-			if(!check[i]) {
-				check[i]=true;
-				System.out.println("r");
-				Front(node.right, check);		
-			}
+		if(arr[n].right!=-1) {
+			Front(arr[n].right, check);
 		}
 	}
-	public static void Rear(String s, boolean[] check) {
-		int k = s.charAt(0)-'A';
-		Node node = arr[k];
-		if(!node.left.equals(".")) {
-			int i=node.left.charAt(0)-'A';
-			if(!check[i]) {
-				check[i]=true;
-				System.out.println("l");
-				Front(node.left, check);		
-			}	
+	public static void Mid(int n, boolean[] check) throws IOException {
+		if(check[n])
+			return;
+		check[n]=true;
+		if(arr[n].left!=-1) {
+			Mid(arr[n].left, check);
 		}
-		if(!node.right.equals(".")) {
-			int i=node.right.charAt(0)-'A';
-			if(!check[i]) {
-				check[i]=true;
-				System.out.println("r");
-				Front(node.right, check);		
-			}
+		// 왼쪽으로 쭉 가고 나서 오른쪽 가기 전에 루트 씀
+		char c = (char) (n+'A');
+		bw.write(c);
+		if(arr[n].right!=-1) {
+			Mid(arr[n].right, check);
 		}
-		sb.append(s);
-		System.out.println(s);
 	}
-	
-	
+	public static void Rear(int n, boolean[] check) throws IOException {
+		if(check[n])
+			return;
+		check[n]=true;
+		if(arr[n].left!=-1) {
+			Rear(arr[n].left, check);
+		}
+		if(arr[n].right!=-1) {
+			Rear(arr[n].right, check);
+		}
+		// 자식 레벨에서부터 올라오면서 써내려감 (왼->오->루트)
+		char c = (char) (n+'A');
+		bw.write(c);
+	}
 	static class Node {
-		String self;
-		String left;
-		String right;
-
-		public Node(String a, String b, String c) {
-			self=a;
-			left=b;
-			right=c;
+		int left;
+		int right;
+		public Node() {
+			left=-1;
+			right=-1;
 		}
 	}
 }
