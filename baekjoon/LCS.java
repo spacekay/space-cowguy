@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-// Longest Commont 'Sequence' (더 어려움)
+// Longest Common 'Sequence' (더 어려움)
 // 공통 부분이 중간중간 떨어져 나와도 다 확인해야 하므로 L*l 만큼의 탐색이 필요
 public class LCS {
 	public static void main(String[] args) throws IOException {
