@@ -1,6 +1,7 @@
-# baekjoon #2156
+# baekjoon #10844
 # Easy Stair Number
 
+# 미완성!
 from sys import stdin
 
 n = int(stdin.readline())
