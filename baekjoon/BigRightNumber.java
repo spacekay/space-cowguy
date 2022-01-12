@@ -30,6 +30,7 @@ public class BigRightNumber {
 				ans[stack.pop()] = ans[i];
 			}
 			// 현재 인덱스 값이 스텍에서 뽑은 인덱스 값보다 작으므로 그 위에 쌓임
+			// 다음 사이클에서 스택 가장 위에 있는 값 : 직전 값!!!!
 			stack.push(i); // 배열의 인덱스
 		}
 		
