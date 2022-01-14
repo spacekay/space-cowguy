@@ -71,7 +71,7 @@ public class ACMCraft {
 			}
 		}
 
-		// 전체 가수의 수만큼 반복
+		// 전체 건물의 수만큼 반복
 		for(int i=0;i<n;i++) {
 			int now = order.poll();
 
