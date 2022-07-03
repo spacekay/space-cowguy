@@ -1,3 +1,6 @@
+# 다중집합 사용 가능한 라이브러리
+from collections import Counter
+
 def solution(str1, str2):
     
     str1 = str1.lower()
@@ -8,58 +11,24 @@ def solution(str1, str2):
     list1 = []
     list2 = []
     
-    for letter in str1:
-        if alpha == "":
-            alpha = letter
-        elif letter.isalpha() or letter.isdigit():
-            alpha = alpha + letter
-            list1.append(alpha)
-            alpha = letter
+    # 문제 조건을 정확히 읽어서 전처리를 정확하게 했다면 빨리 해결했을 것
+    for i in range(len(str1)-1):
+        if str1[i:i+2].isalpha():
+            list1.append(str1[i:i+2])
+            
+    for i in range(len(str2)-1):
+        if str2[i:i+2].isalpha():
+            list2.append(str2[i:i+2])  
     
-    alpha = ""
+    Counter1 = Counter(list1)
+    Counter2 = Counter(list2)
     
-    # 전처리
-    for letter in str2:
-        if alpha == "":
-            alpha = letter
-        elif letter.isalpha() or letter.isdigit():
-            alpha = alpha + letter
-            list2.append(alpha)
-            alpha = letter    
+    ja = list((Counter1 & Counter2).elements())
+    jb = list((Counter1 | Counter2).elements())
     
-    print(list1)
-    print(list2)
-    
-    ja = []
-    jb = set()
-    
-    list3 = []
-    
-    for element in list1:
-        list3.append(element)
-    list4 = []
-    
-    for element in list2:
-        list4.append(element)
-    
-    for element in list3:
-        for element2 in list4:
-            if element == element2:
-                ja.append(element)
-                list4.remove(element2)
-                break
-    
-    print(list4, '*')
-    
-    print(ja)
-    
-    jb = len(list1)+len(list2)-len(ja)
-    
-    print(len(ja), jb)
-    
-    if jb > 0 :
-        answer = int(len(ja)/jb*65536)
+    if len(jb) == 0 and len(ja) == 0:
+        answer = 65536
     else:
-        answer = 1
+        answer = int(len(ja)/len(jb)*65536)
     
     return answer
