@@ -1,4 +1,4 @@
 # Table of contents
 
-* [Welcome to the spacekay world](README.md)
+* [😄 Welcome to my megatera devnote](README.md)
 * [Week 1](week-1.md)
