@@ -1,10 +1,14 @@
+---
+description: devnote_spacekay
+---
+
 # Welcome to the spacekay world
 
 
 
-* Algorithm study (by PS using boj or programmers)
-* Archive the past materials (from A to Z)
-* keeping records
+* megatera devroad (backend survival)
+  * Archive materials
+  * keeping records
 
 
 
