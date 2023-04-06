@@ -1,5 +1,5 @@
 ---
-description: additional study - docker (2023. 4. 4.)
+description: additional study - docker (2023. 4. 4. ~ 2023. 4. 6.)
 ---
 
 # Docker 개념 이해
@@ -63,8 +63,49 @@ description: additional study - docker (2023. 4. 4.)
     * Stopped 상태에서만 Delete 가능
     * Paused 상태에서는 Running 상태로만 돌아갈 수 있음
   * Dockerfile
-    * Image 1개를 빌드할 때 사용하는 파일
+    * Image 1개를 빌드할 때 사용하는 파일
       * Docker image가 금형이라 할 때, Dockerfile은 금형 설계도와 같음
       * Docker hub는 금형 창고와 같고, Dockerfile을 통해 생성 후 업로드-다운로드 가능
+* Docker 여러개 동시에 굴리기
+  * CLI로 수동 생성
+    * Docker network 생성
+    * Application container를 직접 선언 (docker run \~)
+    * DB container를 직접 선언 (docker run \~)
+      * 단, 각각 docker run의 맨 뒤에 네트워크 설정을 해주어야 함
+      * App 뒤쪽 (네트워크 앞) 에서는 포트 설정도 적절하게 가능\
+        (Host OS 외부 또는에 localhost에서 접속하고자 하는 경우)
+  * **docker-compose.yml 작성**
+    * 위에서 언급한 사항을 단 한 줄의 CLI만으로 한 번에 실행 가능
+      * docker-compose -f \[yml 파일] up (-d) --build\
+        (-f : docker compose 파일 지정, -d : Daemon을 이용해 백그라운드 실행)
+      * docker run
+        * \--name : 컨테이너의 이름 지정
+        * \-v : 볼륨 설정
+        * \-p : 포트 포워딩
+        * \-e : 환경 변수 설정
+        * \--network : 해당 컨테이너가 사용할 네트워크 설정
+    * 구성 요소
+      * version : Docker 자체의 버전
+      * services, network(ports, expose), volume, config, secret(ev)
+        * 실행하고자 하는 각각의  컨테이너들을 정의함 -> 컨테이너 생성 및 관리
+        * 구성 요소 : 컨테이너이름, 이미지, build, port mapping, ev(환경변수), volume,  command, depends\_on 등
+          * build : Dockerfile이 별도로 정의된 경우 해당 이미지로 빌드함
+          * command : 컨테이너가 실행될 때 수행할 명령어
+          * depends on : 컨테이너간의 의존성 주입, 명시된 컨테이너를 먼저 실행 및 생성함\
+            (ex: depends on db -> DB를 먼저 생성 후 app container를 실행)
+          * ports : 개방할 포트 지정
+          * expose : link로 연계(내부 연결용)된 컨테이너에만 공개할 포트 설정
+          * volume : 컨테이너에 mount할 Host OS에서의 볼륨 위치 설정
+          * restart : 컨테이너 종료시 재시작 정책
+            * no, always(외부,영향으로 종료된 경우 수동 종료 전까지 항상 재시작), failure(오류 있는 경우 재시작)
+    * Docker network list
+      * docker network ls
+        * bridge : 도커 엔진에 의해 자동 생성되는 가상 네트워크. 컨테이너끼리 연결
+        * host : Host OS의 네트워크 인터페이스를 그대로 사용
+        * none : 네트워크 미사용
+      * docker network prune
+        * 어떤 컨테이너도 사용하지 않는 네트워크는 삭제
+        * \+ prune (중지된 모든 컨테이너 삭제, 미사용 이미지 삭제, 미사용 볼륨 삭제, 미사용 네트워크 삭제 가능)
+      * &#x20;docker network create \[network name]
 
 \+ 필기 기반으로 한번 더 정리 예정
