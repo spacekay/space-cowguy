@@ -66,7 +66,7 @@ description: additional study - docker (2023. 4. 4. ~ 2023. 4. 6.)
     * Image 1개를 빌드할 때 사용하는 파일
       * Docker image가 금형이라 할 때, Dockerfile은 금형 설계도와 같음
       * Docker hub는 금형 창고와 같고, Dockerfile을 통해 생성 후 업로드-다운로드 가능
-* Docker 여러개 동시에 굴리기
+* Docker Container 여러개 동시에 굴리기
   * CLI로 수동 생성
     * Docker network 생성
     * Application container를 직접 선언 (docker run \~)
