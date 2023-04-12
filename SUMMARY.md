@@ -1,7 +1,7 @@
 # Table of contents
 
 * [😄 Welcome to my devnote](README.md)
-* [Week 1](week-1.md)
+* [Week 1 - HTTP (basic)](week-1-http-basic.md)
 
 ## Additional study
 
