@@ -40,7 +40,9 @@ description: Day 1 HTTP basics
     * 요청 - 응답은 동일하게 아래와 같은 구조를 가짐
       * Start line
       * Headers
-        * Client의 상태나 특징 확인 (토큰 등을 통해)
+        * Request : Client의 상태나 특징 확인 (토큰 등을 통해)
+        * Response : Server가 Client에게 Body 외적으로 전달하고자 하는 내용\
+          (쿠키, 콘텐츠 타입 등)
       * Blank line
         * 빼먹으면 body 시작을 알 수 없음
       * Body

@@ -16,9 +16,15 @@ description: Day 2 HTTP Client
     * 예전에 Ubuntu에서 socket 관련 설정을 할 때, 파일 시스템에서 조회 가능했던 것으로 기억함
   * Java의 IO Stream으로 다루기 편함 (개념이 유사함)
 * TCP 통신 순서 (전화 받기와 비슷)
-  * **Listen -> Connect -> Accept -> Send & Receive (반복) -> Close** (Client는 Close 사실을 Receive를 통해 알 수 있음)
+  * **Listen**
+  * **-> Connect**
+  * **-> Accept**
+  * **-> Send & Receive (반복)**
+  * **-> Close** (Client는 Close 사실을 Receive를 통해 알 수 있음)
 * **HTTP Client의 통신 순서**
-  * Connect -> Send & Receive -> Close(Receive)
+  * Connect
+  * \-> Send & Receive
+  * \-> Close(Receive)
   * 항상 서버로부터 Respose를 받고, 서버로 Request를 보냄냄
 * Client Socket 개발 과정 꿀팁 메모
   * Terminal에서 idea . -> IntelliJ에서 바로 프로젝트 오픈 가능
