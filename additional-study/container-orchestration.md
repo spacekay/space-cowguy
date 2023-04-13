@@ -58,5 +58,6 @@ description: additional study - docker (2023. 4. 11. ~ 2023. 4. 13.)
         <figure><img src="../.gitbook/assets/overview-fargate.png" alt=""><figcaption><p>Fargate 기반 AWS ECS diagram</p></figcaption></figure>
 
         * [https://docs.aws.amazon.com/ko\_kr/AmazonECS/latest/developerguide/launch\_types.html](https://docs.aws.amazon.com/ko\_kr/AmazonECS/latest/developerguide/launch\_types.html)
-        * 목요일 수업에서 직접 Fargate로 올려볼 Application image 알아보기
+        * 목요일 수업에서 직접 Fargate로 올려볼 Application image\
+          \-> 작성 완료. 외부 DB 사용하는 케이스도 docker-compose.yml을 활용하여 구성 가능
 

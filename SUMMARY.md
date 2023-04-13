@@ -13,3 +13,4 @@
 
 * [Docker 개념 이해](additional-study/docker.md)
 * [Container Orchestration](additional-study/container-orchestration.md)
+* [Custom Docker Image](additional-study/custom-docker-image.md)
