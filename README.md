@@ -2,13 +2,12 @@
 description: devnote_spacekay
 ---
 
-# 😄 Welcome to my megatera devnote
+# 😄 Welcome to my devnote
 
+### megatera devroad (backend survival)
 
-
-* megatera devroad (backend survival)
-  * Archive materials
-  * keeping records
+* Archive materials
+* keeping records
 
 
 
