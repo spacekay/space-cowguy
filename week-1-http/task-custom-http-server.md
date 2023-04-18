@@ -22,7 +22,7 @@ Low-level Server를 Java로 만들기 (ServerSocket, Socket만 사용)
   * POST는 201(Created)로 성공 신호 전달
 * 새롭게 배운 것들
   * IDE 설치  초기 encoding 설정 챙겨주기
-    * UTF-8로 IntelliJ 설정 바꾸어야 함 (VM \~\~)
+    * UTF-8로 IntelliJ 설정 바꾸어야 함 (사용자 지정 VM 옵션 편집)
     * DELETE method는 response body가 없음 (넣어도 안 보내짐)
     * npm (노드 패키지 매니저/_Node Package Manager_)
       * npm의 tests app을 작동하여 node.js로 작성된 테스트 코드를 돌렸음\
