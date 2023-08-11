@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 // 역시 어려운게 맞았음.. 첫 플래티넘 자축!
+// 실패함수 table initialize 할 때 최대한 많은 경우의 수를 생각했어야 함.
 public class Search {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -17,10 +18,18 @@ public class Search {
 		int[] table = new int[l];
 		int index=0;
 		for(int i=1;i<l;i++) {
-			if(index>0 && P.charAt(index)!=P.charAt(i)) {
+			// i번째 문자의 실패함수를 찾기 위한 인덱스를 구하려면, 
+			// 그 전 글자까지 가장 많이 겹치는 시작점이 어디인지를 알아야 한다.
+			// while이 아니라 if로만 되어 있으면, index = table[index-1]로 index가 한 차례 변경된 이후에도 
+			// P.charAt(index)!=P.charAt(i)인 경우에 다음 탐색이 필요한 정확한 index로 이어서 도달할 수 없다.
+			// (그 뒤로 작동하는 table[i]=index가 정확하지 않을 수 있다.)
+			// while문이어야 한칸 전으로 돌아가서 다시 index = table[index-1]를 시전할 수 있다. (S와 P를 탐색하는 것과 같은 로직이 되게 해야 한다.)
+			// 이전 버전에서 이것을 찾지 못한 것은, 기존 테스트 케이스의 패턴이 길이가 짧거나 패턴이 단순한 편이었기 때문으로 여겨진다.
+			// 나중에 다시 봤을 때 이해가 안되면 외우자. 실패 함수 만드는 것과 KMP 실행하는 로직은 근본적으로 같은 것이다.
+			while (index>0 && P.charAt(index)!=P.charAt(i)) {
 				index = table[index-1];
 			}
-			if(P.charAt(index)==P.charAt(i)) {
+			if (P.charAt(index)==P.charAt(i)) {
 				index++;
 				table[i]=index;
 			}
