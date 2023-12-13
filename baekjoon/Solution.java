@@ -38,14 +38,12 @@ public class Solution {
                 endMin = end;
                 phAbsMin = Math.abs(ph);
             }
-            if (ph == 0) {
-                break;
-            } else if (ph < 0) {
+
+            if (ph < 0) {
                 start++;
             } else {
                 end--;
             }
-
         }
         bw.write(sol[startMin] + " " + sol[endMin] + "\n");
         bw.flush();
